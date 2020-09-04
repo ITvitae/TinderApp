@@ -2,7 +2,7 @@
 
 namespace TinderApp.Models
 {
-    public class Item
+    public class Contact
     {
         public string Id { get; set; }
         public string FullName { get; set; }
@@ -11,5 +11,12 @@ namespace TinderApp.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string Description { get; set; }
+    }
+
+    public enum GenderEnum
+    {
+        Male,
+        Female,
+        Other
     }
 }

@@ -12,20 +12,20 @@ namespace TinderApp.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private Item _selectedItem;
+        private Contact _selectedItem;
 
-        public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<Contact> Items { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public Command<Contact> ItemTapped { get; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Items = new ObservableCollection<Contact>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
+            ItemTapped = new Command<Contact>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
         }
@@ -59,7 +59,7 @@ namespace TinderApp.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
+        public Contact SelectedItem
         {
             get => _selectedItem;
             set
@@ -74,7 +74,7 @@ namespace TinderApp.ViewModels
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
-        async void OnItemSelected(Item item)
+        async void OnItemSelected(Contact item)
         {
             if (item == null)
                 return;
