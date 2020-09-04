@@ -8,11 +8,11 @@ namespace TinderApp.Services
 {
     public class MockDataStore : IDataStore<Contact>
     {
-        readonly List<Contact> items;
+        readonly List<Contact> contacts;
 
         public MockDataStore()
         {
-			items = new List<Contact>()
+			contacts = new List<Contact>()
 			{
 				new Contact { Id="1", FullName="Merissa Bellsham", Gender=(GenderEnum) 2, Age="23", City="Hòa Bình", Country="Vietnam", Description = DescriptionClass.Line1},
 				new Contact { Id="1", FullName="Merissa Bellsham", Gender=(GenderEnum) 2, Age="23", City="Hòa Bình", Country="Vietnam", Description = DescriptionClass.Line1},
@@ -115,43 +115,43 @@ namespace TinderApp.Services
 				new Contact { Id="98", FullName="Joe Dotterill", Gender=(GenderEnum) 2, Age="20", City="Laon", Country="France", Description = DescriptionClass.Line10},
 				new Contact { Id="99", FullName="Serge Surman", Gender=(GenderEnum) 2, Age="19", City="Itoman", Country="Japan", Description = DescriptionClass.Line2},
 				new Contact { Id="100", FullName="Fons Duplan", Gender=(GenderEnum) 2, Age="21", City="Gjinoc", Country="Kosovo", Description = DescriptionClass.Line5},
-
+				new Contact { Id="101", FullName="John Doe", Gender=GenderEnum.Male, Age="21", City="London", Country="England", Description = DescriptionClass.Line5}
 			};
 		}
 	
 
         public async Task<bool> AddItemAsync(Contact item)
         {
-            items.Add(item);
+            contacts.Add(item);
 
             return await Task.FromResult(true);
         }
 
         public async Task<bool> UpdateItemAsync(Contact item)
         {
-            var oldItem = items.Where((Contact arg) => arg.Id == item.Id).FirstOrDefault();
-            items.Remove(oldItem);
-            items.Add(item);
+            var oldContact = contacts.Where((Contact arg) => arg.Id == item.Id).FirstOrDefault();
+            contacts.Remove(oldContact);
+            contacts.Add(item);
 
             return await Task.FromResult(true);
         }
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = items.Where((Contact arg) => arg.Id == id).FirstOrDefault();
-            items.Remove(oldItem);
+            var oldContact = contacts.Where((Contact arg) => arg.Id == id).FirstOrDefault();
+            contacts.Remove(oldContact);
 
             return await Task.FromResult(true);
         }
 
         public async Task<Contact> GetItemAsync(string id)
         {
-            return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
+            return await Task.FromResult(contacts.FirstOrDefault(s => s.Id == id));
         }
 
         public async Task<IEnumerable<Contact>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(items);
+            return await Task.FromResult(contacts);
         }
     }
 }

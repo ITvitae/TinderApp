@@ -52,7 +52,7 @@ namespace TinderApp.ViewModels
             Contact newItem = new Contact()
             {
                 Id = Guid.NewGuid().ToString(),
-                Text = Text,
+                FullName = Text,
                 Description = Description
             };
 

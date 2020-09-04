@@ -11,7 +11,7 @@ namespace TinderApp.Views
 {
     public partial class NewItemPage : ContentPage
     {
-        public Contact Item { get; set; }
+        public Contact Contact { get; set; }
 
         public NewItemPage()
         {

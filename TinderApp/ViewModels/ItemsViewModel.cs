@@ -14,7 +14,7 @@ namespace TinderApp.ViewModels
     {
         private Contact _selectedItem;
 
-        public ObservableCollection<Contact> Items { get; }
+        public ObservableCollection<Contact> Contacts { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
         public Command<Contact> ItemTapped { get; }
@@ -22,7 +22,7 @@ namespace TinderApp.ViewModels
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Contact>();
+            Contacts = new ObservableCollection<Contact>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             ItemTapped = new Command<Contact>(OnItemSelected);
@@ -36,11 +36,11 @@ namespace TinderApp.ViewModels
 
             try
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                Contacts.Clear();
+                var contacts = await DataStore.GetItemsAsync(true);
+                foreach (var contact in contacts)
                 {
-                    Items.Add(item);
+                    Contacts.Add(contact);
                 }
             }
             catch (Exception ex)
