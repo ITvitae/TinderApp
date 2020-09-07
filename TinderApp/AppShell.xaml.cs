@@ -12,7 +12,7 @@ namespace TinderApp
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(IndexPage), typeof(IndexPage));
-            //Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
