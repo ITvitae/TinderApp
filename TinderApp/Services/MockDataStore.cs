@@ -118,7 +118,6 @@ namespace TinderApp.Services
 
 			};
 		}
-	}
 
         public async Task<bool> AddItemAsync(Item item)
         {
@@ -155,3 +154,4 @@ namespace TinderApp.Services
         }
     }
 }
+

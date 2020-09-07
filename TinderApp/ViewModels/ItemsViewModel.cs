@@ -61,6 +61,9 @@ namespace TinderApp.ViewModels
 
         public Item SelectedItem
         {
+
+
+
             get => _selectedItem;
             set
             {
