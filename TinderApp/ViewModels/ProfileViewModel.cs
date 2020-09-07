@@ -19,7 +19,7 @@ namespace TinderApp.ViewModels
         private string _FullName;
         private int _Age;
         private string _Description;
-        private string _Country;
+        private string _Image;
         private string _City;
         private GenderEnum _Gender;
         #endregion
@@ -68,10 +68,10 @@ namespace TinderApp.ViewModels
             get => _City;
             set => SetProperty(ref _City, value);
         }
-        public string Country
+        public string Image
         {
-            get => _Country;
-            set => SetProperty(ref _Country, value);
+            get => _Image;
+            set => SetProperty(ref _Image, value);
         }
         public GenderEnum Gender
         {
@@ -103,7 +103,7 @@ namespace TinderApp.ViewModels
                 FullName = contact.FullName;
                 Age = contact.Age;
                 Description = contact.Description;
-                Country = contact.Country;
+                Image = contact.Image;
                 City = contact.City;
                 Gender = contact.Gender;
             }
@@ -121,7 +121,7 @@ namespace TinderApp.ViewModels
                 FullName = contact.FullName;
                 Age = contact.Age;
                 Description = contact.Description;
-                Country = contact.Country;
+                Image = contact.Image;
                 City = contact.City;
                 Gender = contact.Gender;
             }

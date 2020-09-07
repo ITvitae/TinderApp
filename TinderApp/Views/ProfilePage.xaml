@@ -25,8 +25,8 @@
             <Label Text="City:" FontSize="Medium" />
             <Label Text="{Binding City}" FontSize="Medium"/>
             
-            <Label Text="Country:" FontSize="Medium" />
-            <Label Text="{Binding Country}" FontSize="Medium"/>
+            <Label Text="Image:" FontSize="Medium" />
+            <!--<Label Text="{Binding Country}" FontSize="Medium"/>-->
             
             <Label Text="Description:" FontSize="Medium" />
             <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap"/>

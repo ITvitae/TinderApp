@@ -9,7 +9,6 @@ namespace TinderApp.Models
         public GenderEnum Gender { get; set; }
         public int Age { get; set; }
         public string City { get; set; }
-        public string Country { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
     }
