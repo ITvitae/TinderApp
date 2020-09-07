@@ -1,0 +1,22 @@
+ToDo Notes
+-------------------
+
+General Todo.
+- Add profile page.
+- Add swipe page.
+- Add image files.
+- Update Model, Update MockData.
+
+!! - Remove flyout items list.
+We do not want to show all our 100 contacts in our flyout items.
+
+? - Possibly split profile into an overview and separate edit page.
+Then repurpose static profile for when user wants to see other users profiles.
+
+---------------
+Specific Todos.
+---------------
+Contact Model Changes
+
+!!- Property Age is currently string, should be int.
+- Add Image URL property.
