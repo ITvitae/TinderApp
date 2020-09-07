@@ -52,7 +52,7 @@ namespace TinderApp.ViewModels
             Item newItem = new Item()
             {
                 Id = Guid.NewGuid().ToString(),
-                Text = Text,
+                //Text = Text,
                 Description = Description
             };
 

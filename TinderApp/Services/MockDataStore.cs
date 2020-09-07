@@ -14,7 +14,7 @@ namespace TinderApp.Services
         {
 			items = new List<Item>()
 			{
-				new Item { Id="1", FullName="Merissa Bellsham", Gender=(GenderEnum) 2, Age="23", City="Hòa Bình", Country="Vietnam", Description = DescriptionClass.Line1},
+				new Item { Id="0", FullName="Corps Morissa", Gender=(GenderEnum) 2, Age="23", City="Hòa Flying", Country="Vietnam", Description = DescriptionClass.Line1},
 				new Item { Id="1", FullName="Merissa Bellsham", Gender=(GenderEnum) 2, Age="23", City="Hòa Bình", Country="Vietnam", Description = DescriptionClass.Line1},
 				new Item { Id="2", FullName="Reamonn Kellaway", Gender=(GenderEnum) 2, Age="18", City="Stará Huť", Country="Czech Republic", Description = DescriptionClass.Line9},
 				new Item { Id="3", FullName="Prentice Fattorini", Gender=(GenderEnum) 2, Age="25", City="Peicheng", Country="China", Description = DescriptionClass.Line4},
