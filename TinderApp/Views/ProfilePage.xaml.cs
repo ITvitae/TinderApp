@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TinderApp.Models;
 using TinderApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,13 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace TinderApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class ProfilePage : ContentPage
     {
-        
-        public LoginPage()
+
+        public ProfilePage()
         {
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
+            this.BindingContext = new ProfileViewModel();
         }
     }
 }

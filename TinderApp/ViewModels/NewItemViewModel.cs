@@ -49,10 +49,10 @@ namespace TinderApp.ViewModels
 
         private async void OnSave()
         {
-            Item newItem = new Item()
+            Contact newItem = new Contact()
             {
                 Id = Guid.NewGuid().ToString(),
-                Text = Text,
+                FullName = Text,
                 Description = Description
             };
 
