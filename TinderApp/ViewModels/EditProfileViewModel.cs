@@ -16,7 +16,7 @@ namespace TinderApp.ViewModels
         #region private properties
         private string _contactId;
         private string _FullName;
-        private string _Age;
+        private int _Age;
         private string _Description;
         private string _Country;
         private string _City;
@@ -53,7 +53,7 @@ namespace TinderApp.ViewModels
             get => _FullName;
             set => SetProperty(ref _FullName, value);
         }
-        public string Age
+        public int Age
         {
             get => _Age;
             set => SetProperty(ref _Age, value);
