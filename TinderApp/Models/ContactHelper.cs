@@ -36,6 +36,13 @@ namespace TinderApp.Models
             Img13   = "rabbit0.jpg";
     }
 
+    public enum SwipeStates
+    {
+        Unseen,
+        Denied,
+        Accepted,
+        SuperLike
+    }
     public enum GenderEnum
     {
         Male,
