@@ -14,7 +14,7 @@ namespace TinderApp.Services
         {
 			contacts = new List<Contact>()
 			{
-				new Contact { Id="1", FullName="Merissa Bellsham", Gender=(GenderEnum) 2, Age=23, City="Hòa Bình", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[0], Image=ContactHelper.ImageNameConstants[10]},
+				new Contact { Id="0", FullName="Marget Bellsham", Gender=(GenderEnum) 2, Age=23, City="Hòa Bình", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[3], Image=ContactHelper.ImageNameConstants[10]},
 				new Contact { Id="1", FullName="Merissa Bellsham", Gender=(GenderEnum) 2, Age=23, City="Hòa Bình", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[0], Image=ContactHelper.ImageNameConstants[11]},
 				new Contact { Id="2", FullName="Reamonn Kellaway", Gender=(GenderEnum) 2, Age=18, City="Stará Huť", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[8], Image=ContactHelper.ImageNameConstants[12]},
 				new Contact { Id="3", FullName="Prentice Fattorini", Gender=(GenderEnum) 2, Age=25, City="Peicheng", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[3], Image=ContactHelper.ImageNameConstants[13]},

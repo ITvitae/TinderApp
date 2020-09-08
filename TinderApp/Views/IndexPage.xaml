@@ -8,7 +8,7 @@
              x:Name="BrowseItemsPage">
         <ContentPage.Content>
         <RefreshView x:DataType="local:IndexViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-                        <StackLayout Orientation="Vertical" BackgroundColor="LawnGreen">
+                        <StackLayout Orientation="Vertical">
                     <Label Text="{Binding FullName}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
