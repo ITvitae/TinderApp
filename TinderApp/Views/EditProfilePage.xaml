@@ -15,7 +15,7 @@
 
             <Editor Placeholder="Age" Text="{Binding Age}"/>
             <Editor Placeholder="City" Text="{Binding City}"/>
-            <Editor Placeholder="Country" Text="{Binding Country}"/>
+            <!--<Editor Placeholder="Img" Text="{Binding Image}"/>-->
             <Editor Placeholder="Description" Text="{Binding Description}" AutoSize="TextChanges"/>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>

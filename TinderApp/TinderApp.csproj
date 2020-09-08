@@ -10,6 +10,40 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\bird0.jpg" />
+    <None Remove="Images\cat0.jpg" />
+    <None Remove="Images\cat1.jpg" />
+    <None Remove="Images\cat2.jpg" />
+    <None Remove="Images\cat3.jpg" />
+    <None Remove="Images\cat4.jpg" />
+    <None Remove="Images\cat5.jpg" />
+    <None Remove="Images\dog0.jpg" />
+    <None Remove="Images\dog1.jpg" />
+    <None Remove="Images\dog2.jpg" />
+    <None Remove="Images\dog3.png" />
+    <None Remove="Images\dog4.png" />
+    <None Remove="Images\dog5.png" />
+    <None Remove="Images\rabbit0.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\bird0.jpg" />
+    <EmbeddedResource Include="Images\cat0.jpg" />
+    <EmbeddedResource Include="Images\cat1.jpg" />
+    <EmbeddedResource Include="Images\cat2.jpg" />
+    <EmbeddedResource Include="Images\cat3.jpg" />
+    <EmbeddedResource Include="Images\cat4.jpg" />
+    <EmbeddedResource Include="Images\cat5.jpg" />
+    <EmbeddedResource Include="Images\dog0.jpg" />
+    <EmbeddedResource Include="Images\dog1.jpg" />
+    <EmbeddedResource Include="Images\dog2.jpg" />
+    <EmbeddedResource Include="Images\dog3.png" />
+    <EmbeddedResource Include="Images\dog4.png" />
+    <EmbeddedResource Include="Images\dog5.png" />
+    <EmbeddedResource Include="Images\rabbit0.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>

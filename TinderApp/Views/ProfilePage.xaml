@@ -9,27 +9,34 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            
-            <Label Text="Your Login Details" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout HorizontalOptions="Fill">
+                <ContentView VerticalOptions="FillAndExpand">
+                    <Image Source="{Binding Image, Converter={StaticResource ImageSource}}" HorizontalOptions="Center" HeightRequest="120"/>
+                </ContentView>
+            </StackLayout>
+            <ScrollView Grid.Row="1">
+                <StackLayout Spacing="10" Padding="15">
 
-            <Label Text="Name:" FontSize="Medium" />
-            <Label Text="{Binding FullName}" FontSize="Medium"/>
-            
-            <Label Text="Gender:" FontSize="Medium" />
-            <Label Text="{Binding Gender}" FontSize="Medium"/>
-            
-            <Label Text="Age:" FontSize="Medium" />
-            <Label Text="{Binding Age}" FontSize="Medium"/>
-            
-            <Label Text="City:" FontSize="Medium" />
-            <Label Text="{Binding City}" FontSize="Medium"/>
-            
-            <Label Text="Country:" FontSize="Medium" />
-            <Label Text="{Binding Country}" FontSize="Medium"/>
-            
-            <Label Text="Description:" FontSize="Medium" />
-            <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap"/>
-        </StackLayout>
+                    <Label Text="Profile Details" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text="Name:" FontSize="Medium" />
+                    <Label Text="{Binding FullName}" FontSize="Medium"/>
+                    <Label Text="Image:" FontSize="Medium" />
+
+                    <Label Text="Age:" FontSize="Medium" />
+                    <Label Text="{Binding Age}" FontSize="Medium"/>
+                    <Label Text="Gender:" FontSize="Medium" />
+                    <Label Text="{Binding Gender}" FontSize="Medium"/>
+                    <Label Text="City:" FontSize="Medium" />
+                    <Label Text="{Binding City}" FontSize="Medium"/>
+                    <Label Text="Description:" FontSize="Medium" />
+                    <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

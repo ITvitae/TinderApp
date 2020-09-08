@@ -28,6 +28,7 @@
                 </Setter>
             </Style>
 
+            <converters:ImageSourceConverter x:Key="ImageSource"/>
             <converters:IntEnumConverter x:Key="IntEnum"/>
         </ResourceDictionary>        
     </Application.Resources>

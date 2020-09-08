@@ -16,9 +16,9 @@ namespace TinderApp.ViewModels
         #region private properties
         private string _contactId;
         private string _FullName;
-        private string _Age;
+        private int _Age;
         private string _Description;
-        private string _Country;
+        private string _Image;
         private string _City;
         private GenderEnum _Gender;
         #endregion
@@ -53,7 +53,7 @@ namespace TinderApp.ViewModels
             get => _FullName;
             set => SetProperty(ref _FullName, value);
         }
-        public string Age
+        public int Age
         {
             get => _Age;
             set => SetProperty(ref _Age, value);
@@ -68,10 +68,10 @@ namespace TinderApp.ViewModels
             get => _City;
             set => SetProperty(ref _City, value);
         }
-        public string Country
+        public string Image
         {
-            get => _Country;
-            set => SetProperty(ref _Country, value);
+            get => _Image;
+            set => SetProperty(ref _Image, value);
         }
         public string Description
         {
@@ -101,10 +101,10 @@ namespace TinderApp.ViewModels
                 Id = contact.Id;
                 FullName = contact.FullName;
                 Age = contact.Age;
-                Description = contact.Description;
-                Country = contact.Country;
-                City = contact.City;
                 Gender = contact.Gender;
+                City = contact.City;
+                Description = contact.Description;
+                Image = contact.Image;
             }
             catch (Exception)
             {
@@ -127,8 +127,8 @@ namespace TinderApp.ViewModels
                 Age = Age,
                 Gender = Gender,
                 City = City,
-                Country = Country,
-                Description = Description
+                Description = Description,
+                Image = Image
             };
 
             await DataStore.UpdateItemAsync(newContact);
