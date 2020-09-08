@@ -34,6 +34,21 @@ namespace TinderApp.ViewModels
                 return Enum.GetNames(typeof(GenderEnum)).Select(b => b).ToList();
             }
         }
+        public List<string> SwipeStatesList
+        {
+            get
+            {
+                return Enum.GetNames(typeof(SwipeStates)).Select(b => b).ToList();
+            }
+        }
+
+        public List<string> ImageNamesList
+        {
+            get
+            {
+                return ContactHelper.ImageNameConstants.ToList();
+            }
+        }
         #endregion
 
         #region Commands
@@ -53,30 +68,30 @@ namespace TinderApp.ViewModels
             get => _FullName;
             set => SetProperty(ref _FullName, value);
         }
+        public string Image
+        {
+            get => _Image;
+            set => SetProperty(ref _Image, value);
+        }
         public int Age
         {
             get => _Age;
             set => SetProperty(ref _Age, value);
         }
-        public string Description
+        public GenderEnum Gender
         {
-            get => _Description;
-            set => SetProperty(ref _Description, value);
+            get => _Gender;
+            set => SetProperty(ref _Gender, value);
         }
         public string City
         {
             get => _City;
             set => SetProperty(ref _City, value);
         }
-        public string Image
+        public string Description
         {
-            get => _Image;
-            set => SetProperty(ref _Image, value);
-        }
-        public GenderEnum Gender
-        {
-            get => _Gender;
-            set => SetProperty(ref _Gender, value);
+            get => _Description;
+            set => SetProperty(ref _Description, value);
         }
 
         public string ContactId
