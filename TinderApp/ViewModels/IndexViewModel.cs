@@ -15,11 +15,11 @@ namespace TinderApp.ViewModels
     public class IndexViewModel : BaseViewModel
     {
         private int CurrentNumber;
-        private Item _selectedItem;
-        public Item Item { get; set; }
+        private Contact _selectedItem;
+        public Contact Item { get; set; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public Command<Contact> ItemTapped { get; }
 
         private string fullName;
         private string gender;
