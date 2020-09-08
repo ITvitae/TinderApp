@@ -23,7 +23,7 @@ namespace TinderApp.ViewModels
 
         private string fullName;
         private string gender;
-        private string age;
+        private int age;
         private string city;
         private string country;
         private string description;
@@ -39,7 +39,7 @@ namespace TinderApp.ViewModels
             get => gender;
             set => SetProperty(ref gender, value);
         }
-        public string Age
+        public int Age
         {
             get => age;
             set => SetProperty(ref age, value);
@@ -64,7 +64,7 @@ namespace TinderApp.ViewModels
         {
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
+            ItemTapped = new Command<Contact>(OnItemSelected);
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -73,16 +73,13 @@ namespace TinderApp.ViewModels
 
             try
             {
-                var Items = await DataStore.GetItemsAsync(true);
-                Item = Items.FirstOrDefault(i => i.Id == CurrentNumber.ToString());
+                var Item = await DataStore.GetItemAsync(CurrentNumber.ToString());
                 CurrentNumber++;
 
                 FullName = Item.FullName;
                 Gender = Item.Gender.ToString();
                 Age = Item.Age;
                 City = Item.City;
-                Age = Item.Age;
-                Country = Item.Country;
                 Description = Item.Description;
             }
             catch (Exception ex)
@@ -101,7 +98,7 @@ namespace TinderApp.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
+        public Contact SelectedItem
         {
             get => _selectedItem;
             set
@@ -111,7 +108,7 @@ namespace TinderApp.ViewModels
             }
         }
 
-        async void OnItemSelected(Item item)
+        async void OnItemSelected(Contact item)
         {
             if (item == null)
                 return;
