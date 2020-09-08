@@ -8,6 +8,12 @@
         <ToolbarItem Text="Edit" Command="{Binding EditCommand}" />
     </ContentPage.ToolbarItems>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <!--<StackLayout Spacing="20" Padding="15">
             
@@ -38,10 +44,10 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                     <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                        <Image Source="{Binding Image}" VerticalOptions="Center" HeightRequest="64" />
+                        <Image Source="{Binding Image, Converter={StaticResource ImageSource}}" VerticalOptions="Center" HeightRequest="64" />
                     </ContentView>
                 </StackLayout>
             </StackLayout>
@@ -62,7 +68,7 @@
                     <Label Text="{Binding City}" FontSize="Medium"/>
 
                     <Label Text="Description:" FontSize="Medium" />
-                    <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap"/>
+                     <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap"/>
                     <Label Text="{Binding Description}" FontSize="16" Padding="0,24,0,0"  LineBreakMode="WordWrap"/>
 
 

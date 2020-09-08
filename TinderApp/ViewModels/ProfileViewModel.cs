@@ -61,7 +61,7 @@ namespace TinderApp.ViewModels
             MessagingCenter.Subscribe<EditProfileViewModel, string>
                 (this, ConstantNames.MsgProfileChanged, LoadContactId);
 
-            LoadContactId("101");
+            //LoadContactId("101");
         }
 
         #region Bindable INotify Properties
