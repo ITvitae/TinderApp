@@ -101,7 +101,7 @@ namespace TinderApp.Services
 				new Contact { Id="84", FullName="Morgana Brimmell", Gender=(GenderEnum) 1, Age="25", City="Qarāwul", Country="Afghanistan", Description = ContactHelper.Desc5},
 				new Contact { Id="85", FullName="Sherilyn Caswell", Gender=(GenderEnum) 2, Age="23", City="Makariv", Country="Ukraine", Description = ContactHelper.Desc2},
 				new Contact { Id="86", FullName="Halsey Yaakov", Gender=(GenderEnum) 0, Age="18", City="Turkestan", Country="Kazakhstan", Description = ContactHelper.Desc7},
-				new Contact { Id="87", FullName="Idalina Baleine", Gender=(GenderEnum) 0, Age="19", City="Kushiro", Country="Japan", Description = ContactHelper.Desc10},
+				new Contact { Id="87", FullName="Idalina Baleine", Gender=(GenderEnum) 0, Age="19", City="Kushiro", Country="Japan", Description = ContactHelper.DescriptionConstants[0]},
 				new Contact { Id="88", FullName="Ardyce Humes", Gender=(GenderEnum) 0, Age="23", City="Karlstad", Country="Sweden", Description = ContactHelper.Desc2},
 				new Contact { Id="89", FullName="Joby Zmitruk", Gender=(GenderEnum) 1, Age="24", City="Quinta da Torre", Country="Portugal", Description = ContactHelper.Desc9},
 				new Contact { Id="90", FullName="Jilli Dieton", Gender=(GenderEnum) 2, Age="24", City="Caieiras", Country="Brazil", Description = ContactHelper.Desc9},
