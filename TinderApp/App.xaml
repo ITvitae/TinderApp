@@ -29,6 +29,7 @@
             </Style>
 
             <converters:IntEnumConverter x:Key="IntEnum"/>
+            <converters:ImageSourceConverter x:Key="ImageSource"/>
         </ResourceDictionary>        
     </Application.Resources>
 </Application>
