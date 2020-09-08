@@ -120,6 +120,7 @@ namespace TinderApp.Services
 		}
 	
 
+
         public async Task<bool> AddItemAsync(Contact item)
         {
             contacts.Add(item);
@@ -155,3 +156,4 @@ namespace TinderApp.Services
         }
     }
 }
+
