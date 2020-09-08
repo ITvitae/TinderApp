@@ -6,47 +6,78 @@ using Xamarin.Forms;
 
 namespace TinderApp.ViewModels
 {
-    [QueryProperty(nameof(ItemId), nameof(ItemId))]
+    [QueryProperty(nameof(ContactId), nameof(ContactId))]
     public class ItemDetailViewModel : BaseViewModel
     {
-        private string itemId;
-        private string text;
-        private string description;
+        #region private properties
+        private string _ContactId;
+        private string _FullName;
+        private int _Age;
+        private string _Description;
+        private string _Image;
+        private string _City;
+        private GenderEnum _Gender;
+        #endregion
         public string Id { get; set; }
 
-        public string Text
+        #region INotification Properties
+        public string FullName
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => _FullName;
+            set => SetProperty(ref _FullName, value);
         }
-
+        public int Age
+        {
+            get => _Age;
+            set => SetProperty(ref _Age, value);
+        }
+        public GenderEnum Gender
+        {
+            get => _Gender;
+            set => SetProperty(ref _Gender, value);
+        }
+        public string City
+        {
+            get => _City;
+            set => SetProperty(ref _City, value);
+        }
+        public string Image
+        {
+            get => _Image;
+            set => SetProperty(ref _Image, value);
+        }
         public string Description
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => _Description;
+            set => SetProperty(ref _Description, value);
         }
 
-        public string ItemId
+        public string ContactId
         {
             get
             {
-                return itemId;
+                return _ContactId;
             }
             set
             {
-                itemId = value;
+                _ContactId = value;
                 LoadItemId(value);
             }
         }
+        #endregion
 
-        public async void LoadItemId(string itemId)
+        public async void LoadItemId(string contactId)
         {
             try
             {
-                var item = await DataStore.GetItemAsync(itemId);
-                Id = item.Id;
-                Text = item.FullName;
-                Description = item.Description;
+                var contact = await DataStore.GetItemAsync(contactId);
+                Id = contact.Id;
+                FullName = contact.FullName;
+                Age = contact.Age;
+                Gender = contact.Gender;
+                City = contact.City;
+                Description = contact.Description;
+                Image = contact.Image;
             }
             catch (Exception)
             {

@@ -9,20 +9,20 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <Grid>
+        <Grid Padding="15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackLayout HorizontalOptions="Fill">
-                <ContentView VerticalOptions="FillAndExpand">
-                    <Image Source="{Binding Image, Converter={StaticResource ImageSource}}" HorizontalOptions="Center" HeightRequest="120"/>
+                <ContentView>
+                    <Image Source="{Binding Image, Converter={StaticResource ImageSource}}" HeightRequest="120"/>
                 </ContentView>
             </StackLayout>
-            <ScrollView Grid.Row="1">
-                <StackLayout Spacing="10" Padding="15">
 
+                <StackLayout Spacing="10" Padding="15">
                     <Label Text="Profile Details" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+
                     <Label Text="Name:" FontSize="Medium" />
                     <Label Text="{Binding FullName}" FontSize="Medium"/>
                     <Label Text="Image:" FontSize="Medium" />
@@ -33,10 +33,10 @@
                     <Label Text="{Binding Gender}" FontSize="Medium"/>
                     <Label Text="City:" FontSize="Medium" />
                     <Label Text="{Binding City}" FontSize="Medium"/>
+
                     <Label Text="Description:" FontSize="Medium" />
                     <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap"/>
                 </StackLayout>
-            </ScrollView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
