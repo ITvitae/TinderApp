@@ -22,11 +22,8 @@ namespace TinderApp.ViewModels
         public Command<Contact> ItemTapped { get; }
 
         private string fullName;
-        private string gender;
         private int age;
         private string city;
-        private string country;
-        private string description;
 
         public string FullName
         {
@@ -34,11 +31,6 @@ namespace TinderApp.ViewModels
             set => SetProperty(ref fullName, value);
         }
 
-        public string Gender
-        {
-            get => gender;
-            set => SetProperty(ref gender, value);
-        }
         public int Age
         {
             get => age;
@@ -48,16 +40,6 @@ namespace TinderApp.ViewModels
         {
             get => city;
             set => SetProperty(ref city, value);
-        }
-        public string Country
-        {
-            get => country;
-            set => SetProperty(ref country, value);
-        }
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
         }
 
         public IndexViewModel()
@@ -77,10 +59,8 @@ namespace TinderApp.ViewModels
                 CurrentNumber++;
 
                 FullName = Item.FullName;
-                Gender = Item.Gender.ToString();
                 Age = Item.Age;
                 City = Item.City;
-                Description = Item.Description;
             }
             catch (Exception ex)
             {

@@ -17,7 +17,7 @@
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemTextStyle}"
                             FontSize="15" />
-                <Label Text="{Binding Country}" 
+                <Label Text="{Binding City}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemTextStyle}"
                             FontSize="15" />
