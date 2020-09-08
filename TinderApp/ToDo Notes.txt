@@ -1,0 +1,55 @@
+ToDo Notes
+-------------------
+	Legenda
+------------------
+** = Done
+*/ = In progress
+!! = Attention
+?? = Optional
+
+
+------------------------------
+	!!Current Focus!!
+-------------------------------
+- Update Mockdata
+
+
+
+
+
+---------------------
+	General Todo.
+--------------------
+**	- Add profile page.
+	- Add swipe page.
+**	- Add image files.
+*/	- Update Model, Update MockData.
+	- Add Swipe page.
+		- Pass in Contacts from Mockdata.
+		- Figure out gestures for swiping.
+		- Track which Contacts were unseen, swiped left, swiped right or superliked.
+		- Add visual layout.
+			- Buttons.
+			- Image Contact.
+			- Ability ot see Details when tapping contact.
+	??	- Randomise order in which Contacts get shown.
+		
+
+!! - Remove flyout items list.
+We do not want to show all our 100 contacts in our flyout items.
+However we should not do this hastily as it could break our code.
+And also the code pages serve as a good reference point.
+
+** - Possibly split profile into an overview and separate edit page.
+Then repurpose static profile for when user wants to see other users profiles.
+
+--------------------------
+	Specific Todos.
+--------------------------
+Contact Model Changes
+**	- Property Age is currently string, should be int.
+**	- Add Image URL property.
+**	- Add swipe options Enum.
+**	- Add ContactHelper Class
+
+

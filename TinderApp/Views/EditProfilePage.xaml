@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TinderApp.Views.EditProfilePage"
+             Shell.PresentationMode="Modal">
+
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+
+            <Label Text="Your Login Details" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+
+            <Editor Placeholder="FullName" Text="{Binding FullName}"/>
+
+            <Picker ItemsSource="{Binding GenderList}" SelectedIndex="{Binding Gender, Converter={StaticResource IntEnum}}"/>
+
+            <Editor Placeholder="Age" Text="{Binding Age}"/>
+            <Editor Placeholder="City" Text="{Binding City}"/>
+            <!--<Editor Placeholder="Img" Text="{Binding Image}"/>-->
+            <Editor Placeholder="Description" Text="{Binding Description}" AutoSize="TextChanges"/>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

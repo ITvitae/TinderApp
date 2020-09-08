@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TinderApp.Views.ProfilePage">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" Command="{Binding EditCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            
+            <Label Text="Your Login Details" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+
+            <Label Text="Name:" FontSize="Medium" />
+            <Label Text="{Binding FullName}" FontSize="Medium"/>
+            
+            <Label Text="Gender:" FontSize="Medium" />
+            <Label Text="{Binding Gender}" FontSize="Medium"/>
+            
+            <Label Text="Age:" FontSize="Medium" />
+            <Label Text="{Binding Age}" FontSize="Medium"/>
+            
+            <Label Text="City:" FontSize="Medium" />
+            <Label Text="{Binding City}" FontSize="Medium"/>
+            
+            <Label Text="Image:" FontSize="Medium" />
+            <!--<Label Text="{Binding Country}" FontSize="Medium"/>-->
+            
+            <Label Text="Description:" FontSize="Medium" />
+            <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -45,7 +45,7 @@ namespace TinderApp.ViewModels
             {
                 var item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
-                //Text = item.Text;
+                Text = item.FullName;
                 Description = item.Description;
             }
             catch (Exception)
