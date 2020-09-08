@@ -20,20 +20,21 @@ namespace TinderApp.Models
           Desc10 = "Music is my life. Seeking someone that enjoys music as much as I do.";
 
         public const string
-            Img0    = "bird0.jpg",
-            Img1    = "cat0.jpg",
-            Img2    = "cat1.jpg",
-            Img3    = "cat2.jpg",
-            Img4    = "cat3.jpg",
-            Img5    = "cat4.jpg",
-            Img6    = "cat5.jpg",
-            Img7    = "dog0.jpg",
-            Img8    = "dog1.jpg",
-            Img9    = "dog2.jpg",
-            Img10   = "dog3.png",
-            Img11   = "dog4.png",
-            Img12   = "dog5.png",
-            Img13   = "rabbit0.jpg";
+            Img0 = "bird0.jpg",
+            Img1 = "cat0.jpg",
+            Img2 = "cat1.jpg",
+            Img3 = "cat2.jpg",
+            Img4 = "cat3.jpg",
+            Img5 = "cat4.jpg",
+            Img6 = "cat5.jpg",
+            Img7 = "dog0.jpg",
+            Img8 = "dog1.jpg",
+            Img9 = "dog2.jpg",
+            Img10 = "dog3.png",
+            Img11 = "dog4.png",
+            Img12 = "dog5.png",
+            Img13 = "rabbit0.jpg";
+
     }
 
     public enum SwipeStates

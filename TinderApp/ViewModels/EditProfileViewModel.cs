@@ -33,6 +33,14 @@ namespace TinderApp.ViewModels
                 return Enum.GetNames(typeof(GenderEnum)).Select(b => b).ToList();
             }
         }
+
+        public List<string> SwipeStatesList
+        {
+            get
+            {
+                return Enum.GetNames(typeof(SwipeStates)).Select(b => b).ToList();
+            }
+        }
         #endregion
 
         #region Commands
