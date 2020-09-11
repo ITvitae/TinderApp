@@ -15,11 +15,9 @@ namespace TinderApp.ViewModels
     public class IndexViewModel : BaseViewModel
     {
         private int CurrentNumber;
-        private Contact _selectedItem;
+        private string SwipeDirection;
         public Contact Item { get; set; }
         public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
-        public Command<Contact> ItemTapped { get; }
 
         private string fullName;
         private int age;
@@ -45,8 +43,6 @@ namespace TinderApp.ViewModels
         public IndexViewModel()
         {
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            ItemTapped = new Command<Contact>(OnItemSelected);
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -56,11 +52,30 @@ namespace TinderApp.ViewModels
             try
             {
                 var Item = await DataStore.GetItemAsync(CurrentNumber.ToString());
-                CurrentNumber++;
+                if (Item != null)
+                {
+                    switch (SwipeDirection)
+                    {
+                        case "Left":
+                            Item.SwipeState = SwipeStates.Accepted;
+                            CurrentNumber++;
+                            SwipeDirection = "None";
+                            break;
+                        case "Right":
+                            Item.SwipeState = SwipeStates.Denied;
+                            CurrentNumber++;
+                            SwipeDirection = "None";
+                            break;
+                        default:
+                            break;
+                    }
+                }
 
-                FullName = Item.FullName;
-                Age = Item.Age;
-                City = Item.City;
+                var NewItem = await DataStore.GetItemAsync(CurrentNumber.ToString());
+
+                FullName = NewItem.FullName;
+                Age = NewItem.Age;
+                City = NewItem.City;
             }
             catch (Exception ex)
             {
@@ -75,26 +90,17 @@ namespace TinderApp.ViewModels
         public void OnAppearing()
         {
             IsBusy = true;
-            SelectedItem = null;
         }
 
-        public Contact SelectedItem
+        public async void OnSwipedLeft(object Sender, EventArgs e)
         {
-            get => _selectedItem;
-            set
-            {
-                SetProperty(ref _selectedItem, value);
-                OnItemSelected(value);
-            }
+            SwipeDirection = "Left";
+            await ExecuteLoadItemsCommand();
         }
-
-        async void OnItemSelected(Contact item)
+        public async void OnSwipedRight(object Sender, EventArgs e)
         {
-            if (item == null)
-                return;
-
-            // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+            SwipeDirection = "Right";
+            await ExecuteLoadItemsCommand();
         }
     }
 }

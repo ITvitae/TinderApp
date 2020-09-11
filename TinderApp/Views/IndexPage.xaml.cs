@@ -29,5 +29,13 @@ namespace TinderApp.Views
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
+        protected void OnSwipedLeft(object Sender, EventArgs e)
+        {
+            _viewModel.OnSwipedLeft(Sender, e);
+        }
+        protected void OnSwipedRight(object Sender, EventArgs e)
+        {
+            _viewModel.OnSwipedRight(Sender, e);
+        }
     }
 }

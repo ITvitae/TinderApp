@@ -21,13 +21,10 @@
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemTextStyle}"
                             FontSize="15" />
-                <!--<StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:IndexViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                                </TapGestureRecognizer>
-                            </StackLayout.GestureRecognizers>-->
+                <StackLayout.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipedLeft" Threshold="200"/>
+                    <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipedRight" Threshold="200"/>
+                </StackLayout.GestureRecognizers>
                         </StackLayout>
         </RefreshView>
     </ContentPage.Content>
