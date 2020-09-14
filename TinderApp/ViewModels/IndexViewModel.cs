@@ -67,7 +67,7 @@ namespace TinderApp.ViewModels
 
             try
             {
-                var Item = Items.FirstOrDefault(i => i.Id == CurrentNumber.ToString());
+                var Item = Items[CurrentNumber];
                 if (Item != null)
                 {
                     switch (SwipeDirection)
@@ -78,12 +78,14 @@ namespace TinderApp.ViewModels
                             SwipeDirection = "None";
                             AcceptedList.Add(Item);
                             Items.Remove(Item);
+                            CurrentNumber -= 1;
                             break;
                         case "Right":
                             Item.SwipeState = SwipeStates.Denied;
                             CurrentNumber++;
                             SwipeDirection = "None";
                             Items.Remove(Item);
+                            CurrentNumber -= 1;
                             break;
                         default:
                             break;
@@ -92,7 +94,7 @@ namespace TinderApp.ViewModels
 
 
                 int newNumber = rnd.Next(Items.Count()-1);
-                var newItem = Items.FirstOrDefault(c =>    c.SwipeState == SwipeStates.Unseen && c.Id == newNumber.ToString());
+                var newItem = Items[newNumber];
                 if (newItem != null)
                 {
                     CurrentNumber = newNumber;
