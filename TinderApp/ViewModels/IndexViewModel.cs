@@ -16,6 +16,7 @@ namespace TinderApp.ViewModels
     {
         private int CurrentNumber;
         private string SwipeDirection;
+        private List<Contact> AcceptedList = new List<Contact>();
         public Contact Item { get; set; }
         public Command LoadItemsCommand { get; }
 
@@ -66,6 +67,7 @@ namespace TinderApp.ViewModels
                             Item.SwipeState = SwipeStates.Accepted;
                             CurrentNumber++;
                             SwipeDirection = "None";
+                            AcceptedList.Add(Item);
                             break;
                         case "Right":
                             Item.SwipeState = SwipeStates.Denied;
@@ -77,12 +79,16 @@ namespace TinderApp.ViewModels
                     }
                 }
 
-                var NewItem = await DataStore.GetItemAsync(CurrentNumber.ToString());
+                var AllItems = await DataStore.GetItemsAsync();
+                var NewItem = AllItems.FirstOrDefault(c => c.SwipeState == SwipeStates.Unseen && c.Id != "101");
+                if (NewItem != null)
+                {
+                    FullName = NewItem.FullName;
+                    Age = NewItem.Age;
+                    City = NewItem.City;
+                    Image = NewItem.Image;
+                }
 
-                FullName = NewItem.FullName;
-                Age = NewItem.Age;
-                City = NewItem.City;
-                Image = NewItem.Image;
             }
             catch (Exception ex)
             {
