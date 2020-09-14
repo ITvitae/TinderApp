@@ -20,6 +20,7 @@ namespace TinderApp.ViewModels
         private string SwipeDirection;
         private List<Contact> AcceptedList = new List<Contact>();
         public Contact Item { get; set; }
+        public List<Contact> Items;
         public Command LoadItemsCommand { get; }
 
         private string fullName;
@@ -56,11 +57,17 @@ namespace TinderApp.ViewModels
 
         async Task ExecuteLoadItemsCommand()
         {
+            if (Items == null)
+            {
+                Items = await DataStore.GetUnseenItemsAsync();
+            }
+
+
             IsBusy = true;
 
             try
             {
-                var Item = await DataStore.GetItemAsync(CurrentNumber.ToString());
+                var Item = Items.FirstOrDefault(i => i.Id == CurrentNumber.ToString());
                 if (Item != null)
                 {
                     switch (SwipeDirection)
@@ -70,21 +77,22 @@ namespace TinderApp.ViewModels
                             CurrentNumber++;
                             SwipeDirection = "None";
                             AcceptedList.Add(Item);
+                            Items.Remove(Item);
                             break;
                         case "Right":
                             Item.SwipeState = SwipeStates.Denied;
                             CurrentNumber++;
                             SwipeDirection = "None";
+                            Items.Remove(Item);
                             break;
                         default:
                             break;
                     }
                 }
 
-                var AllUnseenItems = await DataStore.GetUnseenItemsAsync();
 
-                int newNumber = rnd.Next(AllUnseenItems.Count()-1);
-                var newItem = AllUnseenItems.FirstOrDefault(c =>    c.SwipeState == SwipeStates.Unseen && c.Id == newNumber.ToString());
+                int newNumber = rnd.Next(Items.Count()-1);
+                var newItem = Items.FirstOrDefault(c =>    c.SwipeState == SwipeStates.Unseen && c.Id == newNumber.ToString());
                 if (newItem != null)
                 {
                     CurrentNumber = newNumber;
