@@ -22,6 +22,7 @@
     <None Remove="Images\dog2.jpg" />
     <None Remove="Images\dog3.png" />
     <None Remove="Images\dog4.png" />
+    <None Remove="Images\dog5.png" />
     <None Remove="Images\rabbit0.jpg" />
   </ItemGroup>
 
@@ -38,6 +39,7 @@
     <EmbeddedResource Include="Images\dog2.jpg" />
     <EmbeddedResource Include="Images\dog3.png" />
     <EmbeddedResource Include="Images\dog4.png" />
+    <EmbeddedResource Include="Images\dog5.png" />
     <EmbeddedResource Include="Images\rabbit0.jpg" />
   </ItemGroup>
 
