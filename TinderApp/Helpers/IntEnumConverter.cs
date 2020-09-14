@@ -14,6 +14,7 @@ namespace TinderApp.Helpers
             {
                 return (int)value;
             }
+
             return 0;
         }
 
@@ -23,6 +24,7 @@ namespace TinderApp.Helpers
             {
                 return Enum.ToObject(targetType, value);
             }
+
             return 0;
         }
     }

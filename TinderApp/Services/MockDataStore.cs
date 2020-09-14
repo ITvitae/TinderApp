@@ -118,29 +118,11 @@ namespace TinderApp.Services
 				new Contact { Id="101", FullName="John Doe", Gender=GenderEnum.Male, Age=21, City="London", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[4], Image=ContactHelper.ImageNameConstants[13]}
 			};
 		}
-	
-
-
-        public async Task<bool> AddItemAsync(Contact item)
-        {
-            contacts.Add(item);
-
-            return await Task.FromResult(true);
-        }
-
         public async Task<bool> UpdateItemAsync(Contact item)
         {
             var oldContact = contacts.Where((Contact arg) => arg.Id == item.Id).FirstOrDefault();
             contacts.Remove(oldContact);
             contacts.Add(item);
-
-            return await Task.FromResult(true);
-        }
-
-        public async Task<bool> DeleteItemAsync(string id)
-        {
-            var oldContact = contacts.Where((Contact arg) => arg.Id == id).FirstOrDefault();
-            contacts.Remove(oldContact);
 
             return await Task.FromResult(true);
         }

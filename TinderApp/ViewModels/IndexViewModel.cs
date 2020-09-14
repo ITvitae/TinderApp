@@ -22,6 +22,7 @@ namespace TinderApp.ViewModels
         private string fullName;
         private int age;
         private string city;
+        private string image;
 
         public string FullName
         {
@@ -38,6 +39,11 @@ namespace TinderApp.ViewModels
         {
             get => city;
             set => SetProperty(ref city, value);
+        }
+        public string Image
+        {
+            get => image;
+            set => SetProperty(ref image, value);
         }
 
         public IndexViewModel()
@@ -76,6 +82,7 @@ namespace TinderApp.ViewModels
                 FullName = NewItem.FullName;
                 Age = NewItem.Age;
                 City = NewItem.City;
+                Image = NewItem.Image;
             }
             catch (Exception ex)
             {
