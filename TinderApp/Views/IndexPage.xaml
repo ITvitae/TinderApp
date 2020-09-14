@@ -43,8 +43,8 @@
                             <Label Text="City:" FontSize="Medium" />
                             <Label Text="{Binding City}" FontSize="Medium"/>
                             <StackLayout.GestureRecognizers>
-                                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipedLeft" Threshold="6"/>
-                                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipedRight" Threshold="6"/>
+                                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipedLeft" Threshold="5"/>
+                                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipedRight" Threshold="5"/>
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </ScrollView>

@@ -136,6 +136,12 @@ namespace TinderApp.Services
         {
             return await Task.FromResult(contacts);
         }
-    }
+		public async Task<IEnumerable<Contact>> GetUnseenItemsAsync(bool forceRefresh = false)
+		{
+
+			List<Contact> allUnseenItems = contacts.FindAll(c => c.SwipeState == SwipeStates.Unseen);
+			return await Task.FromResult(allUnseenItems);
+		}
+	}
 }
 

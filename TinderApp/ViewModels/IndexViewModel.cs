@@ -14,6 +14,8 @@ namespace TinderApp.ViewModels
 {
     public class IndexViewModel : BaseViewModel
     {
+        private Random rnd = new Random();
+
         private int CurrentNumber;
         private string SwipeDirection;
         private List<Contact> AcceptedList = new List<Contact>();
@@ -79,14 +81,18 @@ namespace TinderApp.ViewModels
                     }
                 }
 
-                var AllItems = await DataStore.GetItemsAsync();
-                var NewItem = AllItems.FirstOrDefault(c => c.SwipeState == SwipeStates.Unseen && c.Id != "101");
-                if (NewItem != null)
+                var AllUnseenItems = await DataStore.GetUnseenItemsAsync();
+
+                int newNumber = rnd.Next(AllUnseenItems.Count()-1);
+                var newItem = AllUnseenItems.FirstOrDefault(c =>    c.SwipeState == SwipeStates.Unseen && c.Id == newNumber.ToString());
+                if (newItem != null)
                 {
-                    FullName = NewItem.FullName;
-                    Age = NewItem.Age;
-                    City = NewItem.City;
-                    Image = NewItem.Image;
+                    CurrentNumber = newNumber;
+
+                    FullName = newItem.FullName;
+                    Age = newItem.Age;
+                    City = newItem.City;
+                    Image = newItem.Image;
                 }
 
             }
