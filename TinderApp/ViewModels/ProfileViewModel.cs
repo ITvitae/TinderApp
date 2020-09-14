@@ -17,9 +17,9 @@ namespace TinderApp.ViewModels
         #region private properties
         private string _contactId;
         private string _FullName;
-        private string _Age;
+        private int _Age;
         private string _Description;
-        private string _Country;
+        private string _Image;
         private string _City;
         private GenderEnum _Gender;
         #endregion
@@ -32,6 +32,21 @@ namespace TinderApp.ViewModels
             get
             {
                 return Enum.GetNames(typeof(GenderEnum)).Select(b => b).ToList();
+            }
+        }
+        public List<string> SwipeStatesList
+        {
+            get
+            {
+                return Enum.GetNames(typeof(SwipeStates)).Select(b => b).ToList();
+            }
+        }
+
+        public List<string> ImageNamesList
+        {
+            get
+            {
+                return ContactHelper.ImageNameConstants.ToList();
             }
         }
         #endregion
@@ -53,30 +68,30 @@ namespace TinderApp.ViewModels
             get => _FullName;
             set => SetProperty(ref _FullName, value);
         }
-        public string Age
+        public string Image
+        {
+            get => _Image;
+            set => SetProperty(ref _Image, value);
+        }
+        public int Age
         {
             get => _Age;
             set => SetProperty(ref _Age, value);
         }
-        public string Description
+        public GenderEnum Gender
         {
-            get => _Description;
-            set => SetProperty(ref _Description, value);
+            get => _Gender;
+            set => SetProperty(ref _Gender, value);
         }
         public string City
         {
             get => _City;
             set => SetProperty(ref _City, value);
         }
-        public string Country
+        public string Description
         {
-            get => _Country;
-            set => SetProperty(ref _Country, value);
-        }
-        public GenderEnum Gender
-        {
-            get => _Gender;
-            set => SetProperty(ref _Gender, value);
+            get => _Description;
+            set => SetProperty(ref _Description, value);
         }
 
         public string ContactId
@@ -103,7 +118,7 @@ namespace TinderApp.ViewModels
                 FullName = contact.FullName;
                 Age = contact.Age;
                 Description = contact.Description;
-                Country = contact.Country;
+                Image = contact.Image;
                 City = contact.City;
                 Gender = contact.Gender;
             }
@@ -121,7 +136,7 @@ namespace TinderApp.ViewModels
                 FullName = contact.FullName;
                 Age = contact.Age;
                 Description = contact.Description;
-                Country = contact.Country;
+                Image = contact.Image;
                 City = contact.City;
                 Gender = contact.Gender;
             }
