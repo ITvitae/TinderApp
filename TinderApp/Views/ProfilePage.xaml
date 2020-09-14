@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
              x:Class="TinderApp.Views.ProfilePage">
 
 
@@ -15,69 +16,36 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <!--<StackLayout Spacing="20" Padding="15">
-            
-            <Label Text="Your Details" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
-
-            <Label Text="Name:" FontSize="Medium" />
-            <Label Text="{Binding FullName}" FontSize="Medium"/>
-
-            <Label Text="Image:" FontSize="Medium" />
-            -<Label Text="{Binding Country}" FontSize="Medium"/> -
-
-            <Label Text="Age:" FontSize="Medium" />
-            <Label Text="{Binding Age}" FontSize="Medium"/>
-
-            <Label Text="Gender:" FontSize="Medium" />
-            <Label Text="{Binding Gender}" FontSize="Medium"/>
-
-            <Label Text="City:" FontSize="Medium" />
-            <Label Text="{Binding City}" FontSize="Medium"/>
-
-            <Label Text="Description:" FontSize="Medium" />
-            <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap"/>
-        </StackLayout>-->
-
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                    <ContentView Padding="0,10,0,10" VerticalOptions="FillAndExpand">
-                        <Image Source="{Binding Image, Converter={StaticResource ImageSource}}" VerticalOptions="Center"  />
-                    </ContentView>
+
+            <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill" Grid.Row="0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="300">
+                    <Image Source="{Binding Image, Converter={StaticResource ImageSource}}" Aspect="AspectFit"/>
                 </StackLayout>
             </StackLayout>
-            <ScrollView Grid.Row="1">
-                <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                    <Label Text="Profile Details" FontSize="Title"/>
 
-                    <Label Text="Name:" FontSize="Medium" />
-                    <Label Text="{Binding FullName}" FontSize="Medium"/>
+            <StackLayout Padding="10, 5" Spacing="10" Grid.Row="1">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding FullName}" FontSize="Medium" TextColor="Black"/>
+                            <Span Text=", " FontSize="Medium"/>
+                            <Span Text="{Binding Age}" TextColor="DimGray" FontSize="Medium"/>
 
-                    <Label Text="Age:" FontSize="Medium" />
-                    <Label Text="{Binding Age}" FontSize="Medium"/>
-
-                    <Label Text="Gender:" FontSize="Medium" />
-                    <Label Text="{Binding Gender}" FontSize="Medium"/>
-
-                    <Label Text="City:" FontSize="Medium" />
-                    <Label Text="{Binding City}" FontSize="Medium"/>
-
-                    <Label Text="Description:" FontSize="Medium" />
-                     <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap"/>
-                    <Label Text="{Binding Description}" FontSize="16" Padding="0,24,0,0"  LineBreakMode="WordWrap"/>
-
-
-                    <Button Margin="0,10,0,0" Text="Edit Profile"
-                        Command="{Binding EditCommand}"
-                        BackgroundColor="{StaticResource Primary}"
-                        TextColor="White" />
-                </StackLayout>
-            </ScrollView>
+                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                            <Span Text="{Binding City}" FontSize="Small" TextColor="DimGray"/>
+                            <Span Text=", "/>
+                            <Span Text="{Binding Gender}" FontSize="Small" TextColor="Gray"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap" TextColor="Black"/>
+            </StackLayout>
         </Grid>
+
     </ContentPage.Content>
 </ContentPage>
