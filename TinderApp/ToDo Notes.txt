@@ -14,25 +14,22 @@ ToDo Notes
 - Update Mockdata
 
 
-
-
-
 ---------------------
 	General Todo.
 --------------------
 **	- Add profile page.
-	- Add swipe page.
 **	- Add image files.
 */	- Update Model, Update MockData.
+
 	- Add Swipe page.
-		- Pass in Contacts from Mockdata.
-		- Figure out gestures for swiping.
-		- Track which Contacts were unseen, swiped left, swiped right or superliked.
+	**	- Pass in Contacts from Mockdata.
+	**	- Figure out gestures for swiping.
+	**	- Track which Contacts were unseen, swiped left, swiped right or superliked.
 		- Add visual layout.
 			- Buttons.
 			- Image Contact.
 			- Ability ot see Details when tapping contact.
-	??	- Randomise order in which Contacts get shown.
+	*?	- Randomise order in which Contacts get shown.
 		
 
 !! - Remove flyout items list.
