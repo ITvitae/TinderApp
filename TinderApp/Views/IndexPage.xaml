@@ -13,7 +13,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <RefreshView x:DataType="local:IndexViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-                        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Vertical">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -25,6 +25,10 @@
                                 <Image Source="{Binding Image, Converter={StaticResource ImageSource}}" VerticalOptions="Center" HeightRequest="64" />
                             </ContentView>
                         </StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipedLeft" Threshold="6"/>
+                            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipedRight" Threshold="6"/>
+                        </StackLayout.GestureRecognizers>
                     </StackLayout>
                     <ScrollView Grid.Row="1">
                         <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
@@ -38,9 +42,14 @@
 
                             <Label Text="City:" FontSize="Medium" />
                             <Label Text="{Binding City}" FontSize="Medium"/>
+                            <StackLayout.GestureRecognizers>
+                                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipedLeft" Threshold="6"/>
+                                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipedRight" Threshold="6"/>
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </ScrollView>
                 </Grid>
+
                 <!--<Label Text="{Binding FullName}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
@@ -53,11 +62,8 @@
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemTextStyle}"
                             FontSize="15" />-->
-                <StackLayout.GestureRecognizers>
-                    <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipedLeft" Threshold="200"/>
-                    <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipedRight" Threshold="200"/>
-                </StackLayout.GestureRecognizers>
-                        </StackLayout>
+            </StackLayout>
         </RefreshView>
+        
     </ContentPage.Content>
 </ContentPage>
