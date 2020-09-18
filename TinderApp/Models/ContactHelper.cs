@@ -64,7 +64,7 @@ namespace TinderApp.Models
             "dog2.jpg",
             "dog3.png",
             "dog4.png",
-            "dog4.png",
+            "dog5.png",
             "rabbit0.jpg"};
 
     }
