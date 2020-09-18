@@ -18,17 +18,19 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="2*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <StackLayout BackgroundColor="{StaticResource Accent}" HorizontalOptions="Fill" Grid.Row="0">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="300">
-                    <Image Source="{Binding Image, Converter={StaticResource ImageSource}}" Aspect="AspectFit"/>
-                </StackLayout>
-            </StackLayout>
+            <Grid Grid.Row="0" BackgroundColor="{StaticResource Accent}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Source="{Binding Image, Converter={StaticResource ImageSource}}" Aspect="AspectFill"/>
+            </Grid>
+           
 
-            <StackLayout Padding="10, 5" Spacing="10" Grid.Row="1">
+            <StackLayout Padding="10, 5" Spacing="5" Grid.Row="1">
                 <Label>
                     <Label.FormattedText>
                         <FormattedString>
@@ -38,13 +40,15 @@
 
                             <Span Text="{x:Static system:Environment.NewLine}"/>
                             <Span Text="{Binding City}" FontSize="Small" TextColor="DimGray"/>
+
                             <Span Text=", "/>
                             <Span Text="{Binding Gender}" FontSize="Small" TextColor="Gray"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap" TextColor="Black"/>
+                <Label Text="{Binding Description}" FontSize="Medium" LineBreakMode="WordWrap" TextColor="DarkSlateGray"/>
             </StackLayout>
+        
         </Grid>
 
     </ContentPage.Content>

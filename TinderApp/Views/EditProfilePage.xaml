@@ -5,18 +5,20 @@
              Shell.PresentationMode="Modal">
 
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
+        <StackLayout Spacing="5" Padding="10, 5">
 
-            <Label Text="Your Login Details" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="Profile Details" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+
+            <Picker ItemsSource="{Binding ImageNamesList}" SelectedItem="{Binding Image}"/>
 
             <Editor Placeholder="FullName" Text="{Binding FullName}"/>
+            <Editor Placeholder="Age" Text="{Binding Age}"/>
+            <Editor Placeholder="City" Text="{Binding City}"/>
 
             <Picker ItemsSource="{Binding GenderList}" SelectedIndex="{Binding Gender, Converter={StaticResource IntEnum}}"/>
 
-            <Editor Placeholder="Age" Text="{Binding Age}"/>
-            <Editor Placeholder="City" Text="{Binding City}"/>
-            <!--<Editor Placeholder="Img" Text="{Binding Image}"/>-->
             <Editor Placeholder="Description" Text="{Binding Description}" AutoSize="TextChanges"/>
+            
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>

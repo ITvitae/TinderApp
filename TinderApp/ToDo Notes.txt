@@ -49,4 +49,6 @@ Contact Model Changes
 **	- Add swipe options Enum.
 **	- Add ContactHelper Class
 
-
+ProfilePages Changes
+**	- Make sure image displays correctly.
+**	- Allow image changing in edit.
