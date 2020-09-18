@@ -6,13 +6,10 @@ namespace TinderApp.Views
 {
     public partial class ItemDetailPage : ContentPage
     {
-        ItemDetailViewModel  _viewModel;
-
         public ItemDetailPage()
         {
             InitializeComponent();
-
-            BindingContext = _viewModel = new ItemDetailViewModel();
+            BindingContext = new ItemDetailViewModel();
         }
     }
 }

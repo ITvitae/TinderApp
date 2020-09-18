@@ -22,7 +22,6 @@ namespace TinderApp.ViewModels
         public Contact Item { get; set; }
         public List<Contact> Items;
         public Command LoadItemsCommand { get; }
-        public Command LoadNewItemCommand { get; }
 
         private string fullName;
         private int age;
@@ -53,23 +52,17 @@ namespace TinderApp.ViewModels
 
         public IndexViewModel()
         {
-            //LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-            ExecuteLoadItemsCommand();
-            LoadNewItemCommand = new Command(async () => await ExecuteLoadNewItemCommand());
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
-        async void ExecuteLoadItemsCommand()
+        async Task ExecuteLoadItemsCommand()
         {
             if (Items == null)
             {
                 Items = await DataStore.GetUnseenItemsAsync();
             }
 
-            IsBusy = true;
-        }
 
-        Task ExecuteLoadNewItemCommand()
-        {
             IsBusy = true;
 
             try
@@ -81,14 +74,18 @@ namespace TinderApp.ViewModels
                     {
                         case "Left":
                             Item.SwipeState = SwipeStates.Accepted;
+                            CurrentNumber++;
                             SwipeDirection = "None";
                             AcceptedList.Add(Item);
                             Items.Remove(Item);
+                            CurrentNumber -= 1;
                             break;
                         case "Right":
                             Item.SwipeState = SwipeStates.Denied;
+                            CurrentNumber++;
                             SwipeDirection = "None";
                             Items.Remove(Item);
+                            CurrentNumber -= 1;
                             break;
                         default:
                             break;
@@ -96,7 +93,7 @@ namespace TinderApp.ViewModels
                 }
 
 
-                int newNumber = rnd.Next(Items.Count() - 1);
+                int newNumber = rnd.Next(Items.Count()-1);
                 var newItem = Items[newNumber];
                 if (newItem != null)
                 {
@@ -107,6 +104,7 @@ namespace TinderApp.ViewModels
                     City = newItem.City;
                     Image = newItem.Image;
                 }
+
             }
             catch (Exception ex)
             {
@@ -116,8 +114,6 @@ namespace TinderApp.ViewModels
             {
                 IsBusy = false;
             }
-
-            return Task.CompletedTask;
         }
 
         public void OnAppearing()
@@ -125,15 +121,15 @@ namespace TinderApp.ViewModels
             IsBusy = true;
         }
 
-        public void OnSwipedLeft(object Sender, EventArgs e)
+        public async void OnSwipedLeft(object Sender, EventArgs e)
         {
             SwipeDirection = "Left";
-            ExecuteLoadNewItemCommand();
+            await ExecuteLoadItemsCommand();
         }
-        public void OnSwipedRight(object Sender, EventArgs e)
+        public async void OnSwipedRight(object Sender, EventArgs e)
         {
             SwipeDirection = "Right";
-            ExecuteLoadNewItemCommand();
+            await ExecuteLoadItemsCommand();
         }
     }
 }

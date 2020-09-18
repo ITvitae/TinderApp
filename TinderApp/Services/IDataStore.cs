@@ -10,6 +10,5 @@ namespace TinderApp.Services
         Task<T> GetItemAsync(string id);
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
         Task<List<T>> GetUnseenItemsAsync(bool forceRefresh = false);
-        Task<List<T>> GetLikedItemsAsync(bool forceRefresh = false);
     }
 }

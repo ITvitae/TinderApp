@@ -21,11 +21,13 @@ namespace TinderApp.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Mathches";
+            Title = "Browse";
             Contacts = new ObservableCollection<Contact>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             ItemTapped = new Command<Contact>(OnItemSelected);
+
+            AddItemCommand = new Command(OnAddItem);
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -35,8 +37,7 @@ namespace TinderApp.ViewModels
             try
             {
                 Contacts.Clear();
-                var contacts = await DataStore.GetLikedItemsAsync(true);
-                //var contacts = await DataStore.GetItemsAsync(true);
+                var contacts = await DataStore.GetItemsAsync(true);
                 foreach (var contact in contacts)
                 {
                     Contacts.Add(contact);
@@ -60,6 +61,9 @@ namespace TinderApp.ViewModels
 
         public Contact SelectedItem
         {
+
+
+
             get => _selectedItem;
             set
             {
@@ -68,13 +72,18 @@ namespace TinderApp.ViewModels
             }
         }
 
-        async void OnItemSelected(Contact contact)
+        private async void OnAddItem(object obj)
         {
-            if (contact == null)
+            await Shell.Current.GoToAsync(nameof(NewItemPage));
+        }
+
+        async void OnItemSelected(Contact item)
+        {
+            if (item == null)
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"//{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ContactId)}={contact.Id}");
+            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
         }
     }
 }
