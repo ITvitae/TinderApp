@@ -115,7 +115,7 @@ namespace TinderApp.Services
 				new Contact { Id="98", FullName="Joe Dotterill", Gender=(GenderEnum) 2, Age=20, City="Laon", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[9], Image=ContactHelper.ImageNameConstants[10]},
 				new Contact { Id="99", FullName="Serge Surman", Gender=(GenderEnum) 2, Age=19, City="Itoman", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[1], Image=ContactHelper.ImageNameConstants[11]},
 				new Contact { Id="100", FullName="Fons Duplan", Gender=(GenderEnum) 2, Age=21, City="Gjinoc", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[4], Image=ContactHelper.ImageNameConstants[12]},
-				new Contact { Id="101", FullName="John Doe", Gender=GenderEnum.Male, Age=21, City="London", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[4], Image=ContactHelper.ImageNameConstants[13]}
+				new Contact { Id="101", FullName="John Doe", Gender=GenderEnum.Male, Age=21, City="London", SwipeState=SwipeStates.SuperLike, Description = ContactHelper.DescriptionConstants[4], Image=ContactHelper.ImageNameConstants[13]}
 			};
 		}
         public async Task<bool> UpdateItemAsync(Contact item)
@@ -141,6 +141,12 @@ namespace TinderApp.Services
 
 			List<Contact> allUnseenItems = contacts.FindAll(c => c.SwipeState == SwipeStates.Unseen);
 			return await Task.FromResult(allUnseenItems);
+		}
+		public async Task<List<Contact>> GetLikedItemsAsync(bool forceRefresh = false)
+		{
+
+			List<Contact> allLikedItems = contacts.FindAll(c => c.SwipeState == SwipeStates.Accepted);
+			return await Task.FromResult(allLikedItems);
 		}
 	}
 }

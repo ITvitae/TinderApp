@@ -82,8 +82,9 @@
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Home" Icon="tab_about.png" Route="IndexPage" ContentTemplate="{DataTemplate local:IndexPage}" />
+        <ShellContent Title="Index" Icon="tab_about.png" Route="IndexPage" ContentTemplate="{DataTemplate local:IndexPage}" />
         <ShellContent Title="About" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Title="Matches" Icon="tab_about.png" Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
         <!--<ShellContent Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />-->
     </FlyoutItem>
 
@@ -102,7 +103,9 @@
     -->
     <ShellContent Route="ProfilePage" Shell.FlyoutBehavior="Flyout"  ContentTemplate="{DataTemplate local:ProfilePage}"/>
     <ShellContent Route="LoginPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}" />
-    
+    <ShellContent Route="ItemDetailPage" ContentTemplate="{DataTemplate local:ItemDetailPage}" />
+    <ShellContent Route="Index" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:IndexPage}" />
+
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
