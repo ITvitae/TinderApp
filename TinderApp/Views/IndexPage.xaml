@@ -12,7 +12,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <RefreshView x:DataType="local:IndexViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <RefreshView x:DataType="local:IndexViewModel" Command="{Binding LoadNewItemCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
             <StackLayout Orientation="Vertical">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -64,6 +64,6 @@
                             FontSize="15" />-->
             </StackLayout>
         </RefreshView>
-        
+
     </ContentPage.Content>
 </ContentPage>

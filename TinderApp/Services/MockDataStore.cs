@@ -6,12 +6,12 @@ using TinderApp.Models;
 
 namespace TinderApp.Services
 {
-    public class MockDataStore : IDataStore<Contact>
-    {
-        readonly List<Contact> contacts;
+	public class MockDataStore : IDataStore<Contact>
+	{
+		readonly List<Contact> contacts;
 
-        public MockDataStore()
-        {
+		public MockDataStore()
+		{
 			contacts = new List<Contact>()
 			{
 				new Contact { Id="0", FullName="Marget Bellsham", Gender=(GenderEnum) 2, Age=23, City="Hòa Bình", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[3], Image=ContactHelper.ImageNameConstants[10]},
@@ -115,33 +115,38 @@ namespace TinderApp.Services
 				new Contact { Id="98", FullName="Joe Dotterill", Gender=(GenderEnum) 2, Age=20, City="Laon", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[9], Image=ContactHelper.ImageNameConstants[10]},
 				new Contact { Id="99", FullName="Serge Surman", Gender=(GenderEnum) 2, Age=19, City="Itoman", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[1], Image=ContactHelper.ImageNameConstants[11]},
 				new Contact { Id="100", FullName="Fons Duplan", Gender=(GenderEnum) 2, Age=21, City="Gjinoc", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[4], Image=ContactHelper.ImageNameConstants[12]},
-				new Contact { Id="101", FullName="John Doe", Gender=GenderEnum.Male, Age=21, City="London", SwipeState=SwipeStates.Unseen, Description = ContactHelper.DescriptionConstants[4], Image=ContactHelper.ImageNameConstants[13]}
+				new Contact { Id="101", FullName="John Doe", Gender=GenderEnum.Male, Age=21, City="London", SwipeState=SwipeStates.SuperLike, Description = ContactHelper.DescriptionConstants[4], Image=ContactHelper.ImageNameConstants[13]}
 			};
 		}
-        public async Task<bool> UpdateItemAsync(Contact item)
-        {
-            var oldContact = contacts.Where((Contact arg) => arg.Id == item.Id).FirstOrDefault();
-            contacts.Remove(oldContact);
-            contacts.Add(item);
+		public async Task<bool> UpdateItemAsync(Contact item)
+		{
+			var oldContact = contacts.Where((Contact arg) => arg.Id == item.Id).FirstOrDefault();
+			contacts.Remove(oldContact);
+			contacts.Add(item);
 
-            return await Task.FromResult(true);
-        }
+			return await Task.FromResult(true);
+		}
 
-        public async Task<Contact> GetItemAsync(string id)
-        {
-            return await Task.FromResult(contacts.FirstOrDefault(s => s.Id == id));
-        }
+		public async Task<Contact> GetItemAsync(string id)
+		{
+			return await Task.FromResult(contacts.FirstOrDefault(s => s.Id == id));
+		}
 
-        public async Task<IEnumerable<Contact>> GetItemsAsync(bool forceRefresh = false)
-        {
-            return await Task.FromResult(contacts);
-        }
+		public async Task<IEnumerable<Contact>> GetItemsAsync(bool forceRefresh = false)
+		{
+			return await Task.FromResult(contacts);
+		}
 		public async Task<List<Contact>> GetUnseenItemsAsync(bool forceRefresh = false)
 		{
 
 			List<Contact> allUnseenItems = contacts.FindAll(c => c.SwipeState == SwipeStates.Unseen);
 			return await Task.FromResult(allUnseenItems);
 		}
+		public async Task<List<Contact>> GetLikedItemsAsync(bool forceRefresh = false)
+		{
+
+			List<Contact> allLikedItems = contacts.FindAll(c => c.SwipeState == SwipeStates.Accepted);
+			return await Task.FromResult(allLikedItems);
+		}
 	}
 }
-
